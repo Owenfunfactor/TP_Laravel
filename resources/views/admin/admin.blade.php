@@ -8,24 +8,32 @@
 </head>
 <body>
 
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul class="my-0">
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    <div class="container mt-5">
-        @if(session('succes'))
-        <div class="alert alert-success">
-            {{ session('succes') }}
-        </div>
-        @endif
-        @yield('content')
-    </div>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Cars shop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Accueil </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.locataire') }}">Liste des locataires </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.car.index') }}">Gérer les voitures</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+  @include('shared.flash')
+
+<footer class="bg-primary text-white text-center py-3 fixed-bottom">
+    Copywriting
+</footer>
 
 </body>
 </html>
