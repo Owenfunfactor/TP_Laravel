@@ -1,13 +1,12 @@
 @extends('admin.admin')
 
-
 @section('title', $car->exists ? "Modifier une voiture" : "Créer une voiture")
 
 @section('content')
 
     <h1>@yield('title')</h1>
 
-    <form class="vstack gap-2" action="{{ route($car->exists ? 'admin.car.update' : 'admin.car.store', ['car' => $car]) }}" method="post">
+    <form class="vstack gap-2" action="{{ route($car->exists ? 'admin.car.update' : 'admin.car.store', ['car' => $car]) }}" method="post" enctype="multipart/form-data">
 
         @csrf
         @method($car->exists ? 'put' : 'post')
@@ -20,10 +19,16 @@
                 @include('shared.input', [ 'class' =>'col', 'name' => 'price','label' =>'Prix' ,'value' => $car->price])
             </div>
         </div>
+
+        <!-- Ajout du champ de fichier pour l'image -->
+        <div class="mb-3">
+            <label for="image" class="form-label">Image de la voiture</label>
+            <input type="file" class="form-control" id="image" name="image">
+        </div>
+
         @include('shared.input', ['type' => 'textarea' , 'name' => 'description' ,'value' => $car->description])
 
         @include('shared.checkbox', [ 'name' => 'status','label' => 'Louer' ,'value' => $car->status])
-
 
         <div>
             <button class="btn btn-primary">

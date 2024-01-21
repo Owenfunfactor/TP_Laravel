@@ -29,7 +29,7 @@
                 </div>
             @endforelse
         </div>
-        <div class="my-4">
+        <div class="my-2">
             {{ $cars->links() }}
         </div>
     </div>

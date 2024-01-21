@@ -38,13 +38,7 @@ Route::get('/biens/{slug}-{car}', [CarController::class, 'show'])->name('car.sho
 ])->middleware('auth');
 
 Route::prefix('admin')->name('admin.')->group(function () {
-    $user = auth()->user();
-    if ($user) {
-        $isAdmin = $user->is_Admin;
-        if($isAdmin){
-            Route::resource('car', \App\Http\Controllers\Admin\CarController::class)->except(['show']);}
-        }
-
+    Route::resource('car', \App\Http\Controllers\Admin\CarController::class)->except(['show']);
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');

@@ -49,7 +49,7 @@
 
     @yield('content')
 
-<footer class="bg-primary text-white text-center py-3 fixed-bottom">
+<footer class="bg-primary text-white text-center py-3 ">
     Copywriting
 </footer>
 

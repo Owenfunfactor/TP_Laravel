@@ -27,7 +27,8 @@ class CarFilterRequest extends FormRequest
             'brand' => ['required', 'min:5'],
             'num_plaq' => ['required', 'min:5'],
             'price' => ['required', 'integer', 'min:0'],
-            'status' => ['required', 'boolean']
+            'status' => ['required', 'boolean'],
+            'lien_img' => ['image|mimes:jpeg,png,jpg,gif,svg|max:2048']
         ];
     }
 }

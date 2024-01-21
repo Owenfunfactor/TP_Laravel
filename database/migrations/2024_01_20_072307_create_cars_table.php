@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('brand');
             $table->string('num_plaq');
             $table->integer('price');
+            $table->string('lien_img');
         });
     }
 

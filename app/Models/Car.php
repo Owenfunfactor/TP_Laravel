@@ -15,6 +15,7 @@ class Car extends Model
         'brand',
         'price',
         'num_plaq',
+        'lien_img',
     ];
 
     public function getSlug(): string {
